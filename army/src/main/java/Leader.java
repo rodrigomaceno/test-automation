@@ -1,5 +1,5 @@
 public abstract class Leader extends Person{
-    private String rank;
+    private String name;
 
 
     public Leader() {
@@ -26,11 +26,4 @@ public abstract class Leader extends Person{
         this.age = age;
     }
 
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
 }

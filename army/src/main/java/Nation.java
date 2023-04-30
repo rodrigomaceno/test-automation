@@ -1,7 +1,6 @@
 public class Nation {
     private String name;
     private String leader;
-    private City[] cities;
 
 
     public Nation() {
@@ -20,10 +19,6 @@ public class Nation {
     public String getLeader() { return leader; }
 
     public void setLeader(String leader) { this.leader = leader; }
-
-    public City[] getCities() { return cities; }
-
-    public void setCities(City[] cities) { this.cities = cities; }
 
 
 }

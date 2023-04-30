@@ -1,3 +1,3 @@
-public interface OperateWarplane {
+public interface OperateWarplane extends OperateVehicle {
     void fly();
 }

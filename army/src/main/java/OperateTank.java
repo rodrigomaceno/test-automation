@@ -1,3 +1,3 @@
 public interface OperateTank extends OperateVehicle {
-    void fireGun();
+    void fireTankGun();
 }

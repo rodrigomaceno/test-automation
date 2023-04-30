@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Army {
     private Soldier[] soldiers;
-    private Sailor[] sailors;
+    private Marine[] marines;
     private Airman[] airmen;
     private Tank[] tanks;
     private Warship[] warships;
@@ -54,9 +54,9 @@ public class Army {
 
     public void setSubmarines(Submarine[] submarines) { this.submarines = submarines; }
 
-    public Sailor[] getSailors() { return sailors; }
+    public Marine[] getSailors() { return marines; }
 
-    public void setSailors(Sailor[] sailors) { this.sailors = sailors; }
+    public void setSailors(Marine[] marines) { this.marines = marines; }
 
     public Airman[] getAirmen() { return airmen; }
 
@@ -71,10 +71,10 @@ public class Army {
 
     }
     public void createNavy(){
-        setSailors(new Sailor[200]);
+        setSailors(new Marine[200]);
         setSubmarines(new Submarine[50]);
         setWarships(new Warship[60]);
-        createSailors(this.sailors);
+        createSailors(this.marines);
     }
     public void createAirForce(){
         setAirmen(new Airman[200]);
@@ -92,8 +92,8 @@ public class Army {
     public void createAirmen(Airman[] airmen) {
         Arrays.setAll(airmen, count -> new Airman());
     }
-    public void createSailors(Sailor[] sailors) {
-        Arrays.setAll(sailors, count -> new Sailor());
+    public void createSailors(Marine[] marines) {
+        Arrays.setAll(marines, count -> new Marine());
     }
     public void createTanks(Tank[] tanks) {
         Arrays.setAll(tanks, count -> new Tank());

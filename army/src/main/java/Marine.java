@@ -1,17 +1,17 @@
 import java.util.Random;
 
-public class Sailor extends Person{
+public class Marine extends Person{
     private String rank;
     private int accuracy;
 
-    public Sailor() {
+    public Marine() {
         this.setName("Sailor");
         this.setAge(24);
         this.rank = "seaman recruit";
         this.nation = "";
     }
 
-    public Sailor(String nation) {
+    public Marine(String nation) {
         this.nation = nation;
     }
 
@@ -59,7 +59,7 @@ public class Sailor extends Person{
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person && o instanceof Sailor)){
+        if ((o instanceof Person && o instanceof Marine)){
             return true;
         }
         else {

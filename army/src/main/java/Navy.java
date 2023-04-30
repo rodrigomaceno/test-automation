@@ -1,6 +1,6 @@
 public class Navy {
     private Leader leader;
-    private Sailor[] sailors;
+    private Marine[] marines;
     private Warship[] warships;
     private Submarine[] submarines;
 
@@ -13,12 +13,12 @@ public class Navy {
     }
 
 
-    public Sailor[] getSailors() {
-        return sailors;
+    public Marine[] getSailors() {
+        return marines;
     }
 
-    public void setSailors(Sailor[] sailors) {
-        this.sailors = sailors;
+    public void setSailors(Marine[] marines) {
+        this.marines = marines;
     }
 
     public Warship[] getWarships() {

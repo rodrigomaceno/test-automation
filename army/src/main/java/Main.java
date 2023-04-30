@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 // Soldier, Sailor, Airman have overridden methods
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +14,7 @@ public class Main {
         army2.createAirForce();
 
         Soldier aSoldier = new Soldier();
-        Sailor aSailor = new Sailor();
+        Marine aMarine = new Marine();
 
 
         Airman airman1 =  new Airman("US");

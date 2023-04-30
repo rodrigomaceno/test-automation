@@ -12,6 +12,9 @@ public class Soldier extends Person{
         this.nation = "";
     }
     public Soldier(String nation) {
+        this.setName("Airman");
+        this.setAge(30);
+        this.rank = "Pilot";
         this.nation = nation;
     }
 

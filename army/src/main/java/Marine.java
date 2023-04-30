@@ -12,6 +12,9 @@ public class Marine extends Person{
     }
 
     public Marine(String nation) {
+        this.setName("Airman");
+        this.setAge(30);
+        this.rank = "Pilot";
         this.nation = nation;
     }
 

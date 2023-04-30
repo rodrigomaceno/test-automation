@@ -12,7 +12,7 @@ public class Army {
     public Army() {
 
     }
-    
+
 
 
     public Soldier[] getSoldiers() {

@@ -5,6 +5,7 @@ public abstract class Person {
     public static int i = 0;
     protected String name;
     protected Integer age;
+    protected int health = 100;
     protected Nation nation;
 
 }

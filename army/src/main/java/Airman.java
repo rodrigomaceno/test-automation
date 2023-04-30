@@ -1,6 +1,5 @@
 public class Airman extends Person implements UseWeapon {
     private String rank;
-
     public Airman() {
         this.setName("Airman");
         this.setAge(30);
@@ -12,6 +11,13 @@ public class Airman extends Person implements UseWeapon {
         this.nation = nation;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     public String getName() {
         return name;
@@ -70,11 +76,10 @@ public class Airman extends Person implements UseWeapon {
     }
 
     @Override
-    public int shoot(Weapon weapon) {
-        return 0;
+    public int shoot(Weapon weapon, Person person) {
+        System.out.println("Airman shot " + person.name + " and caused damage of " + weapon.damageToTarget);
+        person.health -= weapon.damageToTarget;
+        return weapon.damageToTarget;
     }
 
-//    public void attack(Target target) {
-//        System.out.println("An airman has attacked " + target);
-//    }
 }

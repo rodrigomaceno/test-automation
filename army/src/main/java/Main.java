@@ -17,15 +17,12 @@ public class Main {
 
         Soldier aSoldier = new Soldier();
         Sailor aSailor = new Sailor();
-        
+
 
         Airman airman1 =  new Airman("US");
         Airman airman2 =  new Airman("Brazil");
         Airman.combat(airman1, airman2, new Revolver(), new Revolver());
 
-
-        // Testing overridden equals method
-        // System.out.println(aSoldier.equals(aSailor));
 
 
     }

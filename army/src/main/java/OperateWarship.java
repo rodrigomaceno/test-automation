@@ -1,3 +1,3 @@
 public interface OperateWarship {
-    void steer();
+    void sail();
 }

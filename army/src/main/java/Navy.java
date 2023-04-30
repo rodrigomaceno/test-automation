@@ -1,5 +1,4 @@
 public class Navy {
-    private Leader leader;
     private Marine[] marines;
     private Warship[] warships;
     private Submarine[] submarines;
@@ -8,9 +7,7 @@ public class Navy {
     public Navy() {
 
     }
-    public Navy(Leader leader) {
-        this.leader = leader;
-    }
+
 
 
     public Marine[] getSailors() {
@@ -37,7 +34,4 @@ public class Navy {
         this.submarines = submarines;
     }
 
-    public Leader getLeader() { return leader; }
-
-    public void setLeader(Leader leader) { this.leader = leader; }
 }

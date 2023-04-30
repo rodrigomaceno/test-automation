@@ -1,5 +1,4 @@
 public class AirForce {
-    private Leader leader;
     private Airman[] airmen;
     private Warplane[] warplanes;
 
@@ -8,9 +7,6 @@ public class AirForce {
 
     }
 
-    public AirForce(Leader leader) {
-        this.leader = leader;
-    }
 
 
     public Airman[] getAirmen() {

@@ -1,5 +1,4 @@
-public class Warship extends Vehicle {
-    private Boolean isMoving;
+public class Warship extends Vehicle implements OperateWarship{
 
     public Warship() {
 
@@ -33,19 +32,12 @@ public class Warship extends Vehicle {
         this.condition = condition;
     }
 
-    public Integer getYear() {
-        return year;
+    @Override
+    public void drive() {
+
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
+    public void sail() {
 
-    public Boolean getMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(Boolean moving) {
-        isMoving = moving;
     }
 }

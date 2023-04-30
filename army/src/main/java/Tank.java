@@ -1,5 +1,4 @@
-public class Tank extends Vehicle implements OperateVehicle {
-    private Boolean isMoving;
+public class Tank extends Vehicle implements OperateTank {
 
     public Tank() {
         this.setType("Tank");
@@ -37,14 +36,6 @@ public class Tank extends Vehicle implements OperateVehicle {
         this.year = year;
     }
 
-    public Boolean getMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(Boolean moving) {
-        isMoving = moving;
-    }
-
     public Boolean getDamaged() {
         return isDamaged;
     }
@@ -58,12 +49,14 @@ public class Tank extends Vehicle implements OperateVehicle {
         return "Tank";
     }
 
-    public void move() {
-        isMoving = true;
-        System.out.println("Tank is moving.");
+
+    @Override
+    public void fireTankGun() {
+
     }
 
+    @Override
+    public void drive() {
 
-    public void drive() { System.out.println("");}
-
+    }
 }

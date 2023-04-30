@@ -5,10 +5,7 @@ public abstract class Vehicle {
     protected Integer year;
     protected Boolean isDamaged;
 
-//    @Override
-//    public String toString() {
-//        return type;
-//    }
+
 
 }
 

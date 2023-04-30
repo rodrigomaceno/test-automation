@@ -1,5 +1,4 @@
 public class Submarine extends Vehicle{
-    private Boolean isMoving;
 
     public Submarine() {
         this.type = "submarine";
@@ -35,14 +34,6 @@ public class Submarine extends Vehicle{
 
     public void setYear(Integer year) {
         this.year = year;
-    }
-
-    public Boolean getMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(Boolean moving) {
-        isMoving = moving;
     }
 
     public Boolean getDamaged() {

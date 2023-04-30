@@ -13,13 +13,13 @@ public class Main {
         army2.createNavy();
         army2.createAirForce();
 
-        Soldier aSoldier = new Soldier();
-        Marine aMarine = new Marine();
+        System.out.println(army2.getAirmen()[0]);
+        System.out.println(army2.getAirmen().length);
 
 
         Airman airman1 =  new Airman("US");
         Airman airman2 =  new Airman("Brazil");
-        Airman.combat(airman1, airman2, new Revolver(), new Revolver());
+//        Airman.combat(airman1, airman2, new Revolver(), new Revolver());
 
 
 

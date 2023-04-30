@@ -1,8 +1,6 @@
-public class Warplane extends Vehicle {
+public class Warplane extends Vehicle implements OperateWarplane{
 
     private Boolean isFlying;
-
-
 
     public Warplane(){
 
@@ -59,13 +57,19 @@ public class Warplane extends Vehicle {
     }
 
 
-    public void fly() {
-        isFlying = true;
-        System.out.println("Warplane is now flying");
+
+    @Override
+    public void drive() {
+
     }
 
+    @Override
+    public void fly() {
+        isFlying = true;
+    }
+
+    @Override
     public void land() {
         isFlying = false;
-        System.out.println("Warplane has landed");
     }
 }

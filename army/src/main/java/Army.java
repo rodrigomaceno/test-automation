@@ -75,8 +75,9 @@ public class Army {
 
     public void createSoldiers(Soldier[] soldiers) {
         Arrays.setAll(soldiers, count -> new Soldier());
+        int i = 0;
         for (Soldier soldier : soldiers) {
-            Person.i++;
+            i++;
         }
     }
 

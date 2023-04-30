@@ -88,9 +88,8 @@ public class Soldier extends Person{
         if (accuracy == 1) {
             person.health -= weapon.damageToTarget;
         } else {}
-//        System.out.println("Airman shot " + person.name + " and caused damage of " + weapon.damageToTarget);
-    }
 
+    }
 
     public static void combat(Person a, Person b, Weapon gun1, Weapon gun2) {
         final Person personDied;
@@ -106,17 +105,10 @@ public class Soldier extends Person{
 
     }
 
-
     public void die(Person person) {
         if(person.health <= 0){
             System.out.println(person.nation + " " + person.name + " died!");
         }
     }
-
-//    public void enterTank(Tank tank) {
-//        System.out.println("A sailor entered a submarine.");
-//        tank.move();
-//    }
-
 
 }

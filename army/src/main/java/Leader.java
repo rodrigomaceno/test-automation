@@ -1,4 +1,4 @@
-public class Leader extends Person{
+public abstract class Leader extends Person{
     private String rank;
 
 

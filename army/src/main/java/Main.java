@@ -18,12 +18,14 @@ public class Main {
         Soldier aSoldier = new Soldier();
         Sailor aSailor = new Sailor();
 
-        System.out.println("before " + aSoldier.health);
+//        System.out.println("before " + aSoldier.health);
 
-        Airman airman1 =  new Airman();
-        airman1.shoot(new Revolver(), aSoldier);
+        Airman airman1 =  new Airman("US");
+        Airman airman2 =  new Airman("Brazil");
+        Airman.combat(airman1, airman2, new Revolver(), new Revolver());
 
-        System.out.println("after " + aSoldier.health);
+
+//        System.out.println("after " + aSoldier.health);
 
         // Testing overridden equals method
         // System.out.println(aSoldier.equals(aSailor));

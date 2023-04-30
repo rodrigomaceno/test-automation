@@ -1,21 +1,31 @@
+import java.util.Random;
+
 public class Sailor extends Person{
     private String rank;
-
+    private int accuracy;
 
     public Sailor() {
         this.setName("Sailor");
         this.setAge(24);
         this.rank = "seaman recruit";
-        this.setNation(new Nation("",""));
+        this.nation = "";
     }
 
-    public Sailor(Nation nation) {
+    public Sailor(String nation) {
         this.nation = nation;
     }
 
-    public Nation getNation() { return nation; }
+    public int getAccuracy() {
+        return accuracy;
+    }
 
-    public void setNation(Nation nation) { this.nation = nation; }
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
+    }
+
+    public String getNation() { return nation; }
+
+    public void setNation(String nation) { this.nation = nation; }
 
 
     public String getName() {
@@ -71,8 +81,36 @@ public class Sailor extends Person{
         System.out.println("A sailor has entered a warship.");
     }
 
-//    public void attack(Target target) {
-//        System.out.println("A sailor has attacked " + target);
-//    }
+
+    public static void shoot(Weapon weapon, Person person) {
+        int accuracy = new Random().nextInt(2);
+
+        if (accuracy == 1) {
+            person.health -= weapon.damageToTarget;
+        } else {}
+//        System.out.println("Airman shot " + person.name + " and caused damage of " + weapon.damageToTarget);
+    }
+
+
+    public static void combat(Person a, Person b, Weapon gun1, Weapon gun2) {
+        final Person personDied;
+        while(a.health > 0 && b.health > 0) {
+            shoot(gun1,b);
+            shoot(gun2,a);
+        }
+        if(a.health < 0) {
+            personDied = a;
+            a.die(a);
+        } else { personDied = b;
+                    b.die(b);}
+
+    }
+
+
+    public void die(Person person) {
+        if(person.health <= 0){
+            System.out.println(person.nation + " " + person.name + " died!");
+        }
+    }
 
 }

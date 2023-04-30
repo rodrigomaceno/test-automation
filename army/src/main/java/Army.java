@@ -12,16 +12,7 @@ public class Army {
     public Army() {
 
     }
-
-
-//    public Army(Soldier[] soldiers, Tank[] tanks, Warship[] warships, Warplane[] warplanes, Weapon[] weapons, Submarine[] submarines) {
-//        this.soldiers = soldiers;
-//        this.tanks = tanks;
-//        this.warships = warships;
-//        this.warplanes = warplanes;
-//        this.weapons = weapons;
-//        this.submarines = submarines;
-//    }
+    
 
 
     public Soldier[] getSoldiers() {

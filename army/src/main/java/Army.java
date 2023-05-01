@@ -63,8 +63,8 @@ public class Army {
         setSubmarines(new Submarine[50]);
         setWarships(new Warship[60]);
         createMarines(this.marines);
-        createWarships(this.warships);
         createSubmarines(this.submarines);
+        createWarships(this.warships);
     }
     public void createAirForce(){
         setAirmen(new Airman[200]);

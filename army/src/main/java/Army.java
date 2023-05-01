@@ -14,7 +14,6 @@ public class Army {
     }
 
 
-
     public Soldier[] getSoldiers() {
         return soldiers;
     }
@@ -54,13 +53,10 @@ public class Army {
     public void setAirmen(Airman[] airmen) { this.airmen = airmen; }
 
     public void createArmy(){
-
         setSoldiers(new Soldier[200]);
         setTanks(new Tank[45]);
         createSoldiers(this.soldiers);
         createTanks(this.tanks);
-
-
     }
     public void createNavy(){
         setMarines(new Marine[200]);

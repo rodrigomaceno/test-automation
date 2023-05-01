@@ -45,9 +45,9 @@ public class Army {
 
     public void setSubmarines(Submarine[] submarines) { this.submarines = submarines; }
 
-    public Marine[] getSailors() { return marines; }
+    public Marine[] getMarines() { return marines; }
 
-    public void setSailors(Marine[] marines) { this.marines = marines; }
+    public void setMarines(Marine[] marines) { this.marines = marines; }
 
     public Airman[] getAirmen() { return airmen; }
 
@@ -60,23 +60,24 @@ public class Army {
         createSoldiers(this.soldiers);
         createTanks(this.tanks);
 
+
     }
     public void createNavy(){
-        setSailors(new Marine[200]);
+        setMarines(new Marine[200]);
         setSubmarines(new Submarine[50]);
         setWarships(new Warship[60]);
         createMarines(this.marines);
+        createWarships(this.warships);
+        createSubmarines(this.submarines);
     }
     public void createAirForce(){
         setAirmen(new Airman[200]);
         setWarplanes(new Warplane[50]);
         createAirmen(this.airmen);
+        createWarplanes(this.warplanes);
     }
 
-    public void createSoldiers(Soldier[] soldiers) {
-        Arrays.setAll(soldiers, count -> new Soldier());
-    }
-
+    public void createSoldiers(Soldier[] soldiers) { Arrays.setAll(soldiers, count -> new Soldier()); }
     public void createAirmen(Airman[] airmen) {
         Arrays.setAll(airmen, count -> new Airman());
     }
@@ -86,8 +87,12 @@ public class Army {
     public void createTanks(Tank[] tanks) {
         Arrays.setAll(tanks, count -> new Tank());
     }
-
-
+    public void createWarships(Warship[] warships) {
+        Arrays.setAll(warships, count -> new Warship());
+    }
+    public void createWarplanes(Warplane[] warplanes) {
+        Arrays.setAll(warplanes, count -> new Warplane());
+    }
     public void createSubmarines(Submarine[] submarines) {
         Arrays.setAll(submarines, count -> new Submarine());
     }

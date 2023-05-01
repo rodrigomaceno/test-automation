@@ -90,10 +90,10 @@ public class Soldier extends Person implements UseWeapon, Combat{
     }
 
 
-    public void combat(Person person, Weapon weapon) {
+    public void combat(Person person) {
 
         while(this.health > 0 && person.health > 0) {
-            shoot(this.weapon, person);
+            shoot(this.getWeapon(), person);
             shoot(person.getWeapon(),this);
         }
         if(this.health < 0) {

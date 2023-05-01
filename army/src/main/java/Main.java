@@ -21,7 +21,7 @@ public class Main {
         aMan2.setWeapon(new Rifle());
 
         //testing combat functionality
-        aMan.combat(aMan2, aMan2.getWeapon());
+        aMan.combat(aMan2);
 
     }
 

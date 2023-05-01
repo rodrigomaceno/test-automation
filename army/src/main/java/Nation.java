@@ -2,13 +2,11 @@ public class Nation {
     private String name;
     private String leader;
 
-
     public Nation() {
 
     }
-    public Nation(String name, String leader) {
+    public Nation(String name) {
         this.name = name;
-        this.leader = leader;
     }
 
 

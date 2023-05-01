@@ -13,7 +13,7 @@ public class Main {
         army2.createNavy();
         army2.createAirForce();
 
-        System.out.println(army2.getAirmen()[0]);
+        System.out.println(army2.getSoldiers()[0]);
         System.out.println(army2.getAirmen().length);
 
 

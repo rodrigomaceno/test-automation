@@ -7,7 +7,6 @@ public class Tank extends Vehicle implements OperateTank {
         this.nation = nation;
     }
 
-
     public String getType() {
         return type;
     }
@@ -24,7 +23,7 @@ public class Tank extends Vehicle implements OperateTank {
         return damage;
     }
 
-    public void setDamaged(int damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 

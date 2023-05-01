@@ -1,4 +1,6 @@
+import java.util.Random;
+
 public interface UseWeapon {
-    static void shoot(Weapon weapon, Person person) {};
+    void shoot(Weapon weapon, Person person);
 
 }

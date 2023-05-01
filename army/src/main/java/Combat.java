@@ -1,3 +1,3 @@
 public interface Combat {
-    static void combat(){};
+    void combat(Person person, Weapon weapon);
 }

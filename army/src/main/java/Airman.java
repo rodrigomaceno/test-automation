@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class Airman extends Person implements UseWeapon, Combat {
+public class Airman extends Person implements UseWeapon, Combat{
     private String rank;
-    private int accuracy;
+    private Weapon weapon;
     public Airman() {
         this.setName("Airman");
         this.setAge(30);
@@ -16,6 +16,15 @@ public class Airman extends Person implements UseWeapon, Combat {
         this.rank = "Pilot";
         this.nation = nation;
     }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
 
     public int getHealth() {
         return health;
@@ -77,40 +86,26 @@ public class Airman extends Person implements UseWeapon, Combat {
         return  3;
     }
 
-    public void enterWarplane() {
-        System.out.println("An airman entered a warplane.");
-    }
-
-
-    public static void shoot(Weapon weapon, Person person) {
+    @Override
+    public void shoot(Weapon weapon, Person person) {
         int accuracy = new Random().nextInt(2);
 
         if (accuracy == 1) {
             person.health -= weapon.damageToTarget;
         } else {}
-//        System.out.println("Airman shot " + person.name + " and caused damage of " + weapon.damageToTarget);
     }
 
 
-    public static void combat(Person a, Person b, Weapon gun1, Weapon gun2) {
-        final Person personDied;
-        while(a.health > 0 && b.health > 0) {
-            shoot(gun1,b);
-            shoot(gun2,a);
+    public void combat(Person person, Weapon weapon) {
+
+        while(this.health > 0 && person.health > 0) {
+            shoot(this.weapon, person);
+            shoot(person.getWeapon(),this);
         }
-        if(a.health < 0) {
-            personDied = a;
-            a.die(a);
-        } else { personDied = b;
-                    b.die(b);}
-
+        if(this.health <= 0) {
+            this.die();
+        } else { person.die();}
     }
 
-
-    public void die(Person person) {
-        if(person.health <= 0){
-            System.out.println(person.nation + " " + person.name + " died!");
-        }
-    }
 
 }

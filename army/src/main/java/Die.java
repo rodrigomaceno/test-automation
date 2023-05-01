@@ -1,3 +1,3 @@
 public interface Die {
-     void die(Person person);
+     void die();
 }

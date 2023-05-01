@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Army {
+public class Army{
     private Soldier[] soldiers;
     private Marine[] marines;
     private Airman[] airmen;

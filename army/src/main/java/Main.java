@@ -14,8 +14,16 @@ public class Main {
         army2.createNavy("Country 2");
         army2.createAirForce("Country 2");
 
-        //test combat functionality
-        Airman.combat(army1.getAirmen()[0], army2.getAirmen()[0], new Revolver(), new Revolver());
+        Airman aMan = new Airman("US");
+        Airman aMan2 = new Airman("Brazil");
+
+        aMan.setWeapon(new Revolver());
+        aMan2.setWeapon(new Rifle());
+
+        //testing combat functionality
+        aMan.combat(aMan2, aMan2.getWeapon());
 
     }
+
+
 }

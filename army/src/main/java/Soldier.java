@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class Soldier extends Person{
+public class Soldier extends Person implements UseWeapon, Combat{
     private String rank;
-    private int accuracy;
+    private Weapon weapon;
 
     public Soldier() {
         this.setName("Soldier");
@@ -17,13 +17,14 @@ public class Soldier extends Person{
         this.nation = nation;
     }
 
-    public int getAccuracy() {
-        return accuracy;
+    public Weapon getWeapon() {
+        return weapon;
     }
 
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
+
 
     public String getNation() { return nation; }
 
@@ -79,35 +80,25 @@ public class Soldier extends Person{
     public int hashCode() {
         return 1;
     }
-
-
-    public static void shoot(Weapon weapon, Person person) {
+    @Override
+    public void shoot(Weapon weapon, Person person) {
         int accuracy = new Random().nextInt(2);
 
         if (accuracy == 1) {
             person.health -= weapon.damageToTarget;
         } else {}
-
     }
 
-    public static void combat(Person a, Person b, Weapon gun1, Weapon gun2) {
-        final Person personDied;
-        while(a.health > 0 && b.health > 0) {
-            shoot(gun1,b);
-            shoot(gun2,a);
-        }
-        if(a.health < 0) {
-            personDied = a;
-            a.die(a);
-        } else { personDied = b;
-                    b.die(b);}
 
-    }
+    public void combat(Person person, Weapon weapon) {
 
-    public void die(Person person) {
-        if(person.health <= 0){
-            System.out.println(person.nation + " " + person.name + " died!");
+        while(this.health > 0 && person.health > 0) {
+            shoot(this.weapon, person);
+            shoot(person.getWeapon(),this);
         }
+        if(this.health < 0) {
+            this.die();
+        } else { person.die();}
     }
 
 }

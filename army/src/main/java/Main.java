@@ -1,4 +1,5 @@
 // Soldier, Sailor, Airman have overridden methods
+// Weapon, Person, Vehicle are all abstract 
 public class Main {
     public static void main(String[] args) {
 

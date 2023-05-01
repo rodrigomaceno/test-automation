@@ -20,8 +20,6 @@ public class Main {
         Airman airman1 =  new Airman("US");
         Airman airman2 =  new Airman("Brazil");
 //        Airman.combat(airman1, airman2, new Revolver(), new Revolver());
-
-
-
+        
     }
 }

@@ -20,27 +20,16 @@ public class Submarine extends Vehicle{
 
     public void setNation(String nation) { this.nation = nation; }
 
-    public String getCondition() {
-        return condition;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setDamaged(int damage) {
+        this.damage = damage;
     }
 
-    public Integer getYear() {
-        return year;
-    }
+    @Override
+    public void destroy() {
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public Boolean getDamaged() {
-        return isDamaged;
-    }
-
-    public void setDamaged(Boolean damaged) {
-        isDamaged = damaged;
     }
 }

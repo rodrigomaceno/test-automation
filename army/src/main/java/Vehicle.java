@@ -1,10 +1,7 @@
-public abstract class Vehicle {
+public abstract class Vehicle implements Destroy{
     protected String type;
     protected String nation;
-    protected String condition;
-    protected Integer year;
-    protected Boolean isDamaged;
-
+    protected int damage;
 
 
 }

@@ -20,28 +20,12 @@ public class Tank extends Vehicle implements OperateTank {
 
     public void setNation(String nation) { this.nation = nation; }
 
-    public String getCondition() {
-        return condition;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public Boolean getDamaged() {
-        return isDamaged;
-    }
-
-    public void setDamaged(Boolean damaged) {
-        isDamaged = damaged;
+    public void setDamaged(int damage) {
+        this.damage = damage;
     }
 
     @Override
@@ -57,6 +41,11 @@ public class Tank extends Vehicle implements OperateTank {
 
     @Override
     public void drive() {
+
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }

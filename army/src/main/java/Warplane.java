@@ -1,10 +1,12 @@
+import java.lang.annotation.Target;
+
 public class Warplane extends Vehicle implements OperateWarplane{
 
     private Boolean isFlying;
-
     public Warplane(){
 
     }
+
     public Warplane(String nation) {
         this.nation = nation;
     }
@@ -24,22 +26,6 @@ public class Warplane extends Vehicle implements OperateWarplane{
         this.nation = nation;
     }
 
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
     public Boolean getFlying() {
         return isFlying;
     }
@@ -48,12 +34,12 @@ public class Warplane extends Vehicle implements OperateWarplane{
         isFlying = flying;
     }
 
-    public Boolean getDamaged() {
-        return isDamaged;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setDamaged(Boolean damaged) {
-        isDamaged = damaged;
+    public void setDamaged(int damage) {
+        this.damage = damage;
     }
 
 
@@ -71,5 +57,19 @@ public class Warplane extends Vehicle implements OperateWarplane{
     @Override
     public void land() {
         isFlying = false;
+    }
+
+    @Override
+    public void fireMachineGun() {
+
+    }
+
+    public void fireMachineGun(Warplane enemy) {
+
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

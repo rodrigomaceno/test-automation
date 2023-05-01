@@ -24,12 +24,12 @@ public class Warship extends Vehicle implements OperateWarship{
         this.nation = nation;
     }
 
-    public String getCondition() {
-        return condition;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setDamaged(int damage) {
+        this.damage = damage;
     }
 
     @Override
@@ -38,6 +38,11 @@ public class Warship extends Vehicle implements OperateWarship{
     }
 
     public void sail() {
+
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }

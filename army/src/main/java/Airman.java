@@ -96,15 +96,15 @@ public class Airman extends Person implements UseWeapon, Combat{
     }
 
 
-    public void combat(Person person, Person enemy) {
+    public void combat(Person person) {
 
-        while(person.health > 0 && enemy.health > 0) {
-            shoot(person.getWeapon(), enemy);
-            shoot(enemy.getWeapon(),person);
+        while(this.health > 0 && person.health > 0) {
+            shoot(this.getWeapon(), person);
+            shoot(person.getWeapon(),this);
         }
         if(this.health <= 0) {
-            person.die();
-        } else { enemy.die();}
+            this.die();
+        } else { person.die();}
     }
 
 

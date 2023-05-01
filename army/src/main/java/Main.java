@@ -34,9 +34,9 @@ public class Main {
         airman6.setWeapon(new Revolver());
 
         //testing combat functionality
-        airman.combat(airman,airman2);
-        airman3.combat(airman3, airman4);
-        airman5.combat(airman5,airman6);
+        airman.combat(airman2);
+        airman3.combat(airman4);
+        airman5.combat(airman6);
 
     }
 

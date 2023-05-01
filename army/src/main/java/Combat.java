@@ -1,3 +1,3 @@
 public interface Combat {
-    void combat(Person person, Person enemy);
+    void combat(Person person);
 }

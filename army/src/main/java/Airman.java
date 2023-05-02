@@ -26,14 +26,6 @@ public class Airman extends Person implements UseWeapon, Combat{
     }
 
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public String getName() {
         return name;
     }
@@ -72,7 +64,7 @@ public class Airman extends Person implements UseWeapon, Combat{
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person && o instanceof Airman)){
+        if ((o instanceof Person)){
             return true;
         }
         else {

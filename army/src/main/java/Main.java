@@ -1,7 +1,13 @@
-// Soldier, Sailor, Airman have overridden methods
+//import java.util.logging.Logger;
+//import static java.util.logging.Logger.getLogger;
+
+// Soldier, Marine, Airman have overridden methods
 // Weapon, Person, Vehicle are all abstract
 public class Main {
     public static void main(String[] args) {
+
+//        Logger log = getLogger(Main.class.getName());
+//        log.info("My message");
 
         Army army1 = new Army();
         army1.createArmy("Country 1");
@@ -14,31 +20,30 @@ public class Main {
         army2.createNavy("Country 2");
         army2.createAirForce("Country 2");
 
-        Airman airman = new Airman("Country 1");
-        Airman airman2 = new Airman("Country 2");
-        Airman airman3 = new Airman("Country 1");
-        Airman airman4 = new Airman("Country 2");
-        Airman airman5 = new Airman("Country 1");
-        Airman airman6 = new Airman("Country 2");
 
-        // giving them the same gun allows for comparing whether random is working
-        airman.setWeapon(new Revolver());
-        airman2.setWeapon(new Revolver());
+//      testing Vehicle combat functionality
+        army1.getTanks()[0].combat(army2.getTanks()[0]);
+        army1.getWarplanes()[0].combat(army2.getWarplanes()[0]);
+        army1.getSubmarines()[0].combat(army2.getSubmarines()[0]);
+        army1.getWarships()[0].combat(army2.getWarships()[0]);
 
-        // Country 2 has a better weapon, improved chance of surviving
-        airman3.setWeapon(new Revolver());
-        airman4.setWeapon(new Rifle());
 
-        // // Country 1 has a better weapon, improved chance of surviving
-        airman5.setWeapon(new Rifle());
-        airman6.setWeapon(new Revolver());
+//      testing Person combat functionality,
+//      giving them the same gun allows for comparing whether random is working
+        army1.getSoldiers()[0].setWeapon(new Revolver());
+        army2.getSoldiers()[0].setWeapon(new Revolver());
+        army1.getSoldiers()[0].combat(army2.getSoldiers()[0]);
 
-        //testing combat functionality
-        airman.combat(airman2);
-        airman3.combat(airman4);
-        airman5.combat(airman6);
+
+//      Country 2 Soldier has a better weapon, improved chance of surviving
+        army1.getSoldiers()[1].setWeapon(new Revolver());
+        army2.getSoldiers()[1].setWeapon(new Rifle());
+        army1.getSoldiers()[1].combat(army2.getSoldiers()[1]);
+
+//      Country 1 has a better weapon, improved chance of surviving
+        army1.getSoldiers()[2].setWeapon(new Rifle());
+        army2.getSoldiers()[2].setWeapon(new Revolver());
+        army1.getSoldiers()[2].combat(army2.getSoldiers()[2]);
 
     }
-
-
 }

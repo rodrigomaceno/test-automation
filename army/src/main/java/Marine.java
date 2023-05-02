@@ -63,7 +63,7 @@ public class Marine extends Person implements UseWeapon, Combat{
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person && o instanceof Marine)){
+        if ((o instanceof Person)){
             return true;
         }
         else {
@@ -75,14 +75,6 @@ public class Marine extends Person implements UseWeapon, Combat{
     @Override
     public int hashCode() {
         return  2;
-    }
-
-    public void enterSubmarine() {
-        System.out.println("A sailor entered a submarine.");
-    }
-
-    public void enterWarship() {
-        System.out.println("A sailor has entered a warship.");
     }
 
 

@@ -1,3 +1,3 @@
-public interface OperateSubmarine extends OperateVehicle{
-    void fireTorpedo();
+public interface OperateSubmarine extends OperateVehicle, VehicleCombat{
+    void fireTorpedo(Vehicle vehicle);
 }

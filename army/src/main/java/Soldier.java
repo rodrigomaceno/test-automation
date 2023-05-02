@@ -51,14 +51,6 @@ public class Soldier extends Person implements UseWeapon, Combat{
 
     public void setRank(String rank) { this.rank = rank; }
 
-    public String getNationality() {
-        return nation;
-    }
-
-    public void setNationality(String nation) {
-        this.nation = nation;
-    }
-
 
     @Override
     public String toString() {
@@ -67,7 +59,7 @@ public class Soldier extends Person implements UseWeapon, Combat{
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person && o instanceof Soldier)){
+        if ((o instanceof Person)){
             return true;
         }
         else {

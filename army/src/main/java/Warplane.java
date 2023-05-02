@@ -1,13 +1,14 @@
 import java.lang.annotation.Target;
+import java.util.Random;
 
-public class Warplane extends Vehicle implements OperateWarplane{
+public class Warplane extends Vehicle implements OperateWarplane, VehicleCombat{
 
-    private Boolean isFlying;
     public Warplane(){
-
+        this.setType("Warplane");
     }
 
     public Warplane(String nation) {
+        this.setType("Warplane");
         this.nation = nation;
     }
 
@@ -26,14 +27,6 @@ public class Warplane extends Vehicle implements OperateWarplane{
         this.nation = nation;
     }
 
-    public Boolean getFlying() {
-        return isFlying;
-    }
-
-    public void setFlying(Boolean flying) {
-        isFlying = flying;
-    }
-
     public int getDamage() {
         return damage;
     }
@@ -49,27 +42,23 @@ public class Warplane extends Vehicle implements OperateWarplane{
 
     }
 
-    @Override
-    public void fly() {
-        isFlying = true;
+    public void fireMachineGun(Vehicle enemy) {
+        int accuracy = new Random().nextInt(2);
+
+        if (accuracy == 1) {
+            enemy.damage += 30;
+        } else {}
     }
 
     @Override
-    public void land() {
-        isFlying = false;
+    public void combat(Vehicle vehicle) {
+        while(this.damage < 100 && vehicle.damage < 100) {
+            fireMachineGun(vehicle);
+            fireMachineGun(this);
+        }
+        if(this.damage >= 100) {
+            this.destroy();
+        } else { vehicle.destroy();}
     }
 
-    @Override
-    public void fireMachineGun() {
-
-    }
-
-    public void fireMachineGun(Warplane enemy) {
-
-    }
-
-    @Override
-    public void destroy() {
-
-    }
 }

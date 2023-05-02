@@ -1,3 +1,3 @@
-public interface OperateWarship extends OperateVehicle {
-    void sail();
+public interface OperateWarship extends OperateVehicle, VehicleCombat {
+    void fireArtillery(Vehicle vehicle);
 }

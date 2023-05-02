@@ -1,9 +1,12 @@
+import java.util.Random;
+
 public class Warship extends Vehicle implements OperateWarship{
 
     public Warship() {
-
+        this.setType("Warship");
     }
     public Warship(String nation) {
+        this.setType("Warship");
         this.nation = nation;
     }
 
@@ -42,7 +45,22 @@ public class Warship extends Vehicle implements OperateWarship{
     }
 
     @Override
-    public void destroy() {
+    public void fireArtillery(Vehicle enemy) {
+        int accuracy = new Random().nextInt(2);
 
+        if (accuracy == 1) {
+            enemy.damage += 30;
+        } else {}
+    }
+
+    @Override
+    public void combat(Vehicle vehicle) {
+        while(this.damage < 100 && vehicle.damage < 100) {
+            fireArtillery(vehicle);
+            fireArtillery(this);
+        }
+        if(this.damage >= 100) {
+            this.destroy();
+        } else { vehicle.destroy();}
     }
 }

@@ -1,13 +1,8 @@
-//import java.util.logging.Logger;
-//import static java.util.logging.Logger.getLogger;
-
 // Soldier, Marine, Airman have overridden methods
 // Weapon, Person, Vehicle are all abstract
 public class Main {
     public static void main(String[] args) {
 
-//        Logger log = getLogger(Main.class.getName());
-//        log.info("My message");
 
         Army army1 = new Army();
         army1.createArmy("Country 1");

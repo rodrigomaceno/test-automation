@@ -1,6 +1,8 @@
+import interfaces.OperateWarship;
+
 import java.util.Random;
 
-public class Warship extends Vehicle implements OperateWarship{
+public class Warship extends Vehicle implements OperateWarship {
 
     public Warship() {
         this.setType("Warship");

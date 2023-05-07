@@ -1,6 +1,8 @@
+import interfaces.OperateSubmarine;
+
 import java.util.Random;
 
-public class Submarine extends Vehicle implements OperateSubmarine{
+public class Submarine extends Vehicle implements OperateSubmarine {
 
     public Submarine() {
         this.type = "Submarine";

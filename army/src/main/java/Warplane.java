@@ -1,7 +1,9 @@
-import java.lang.annotation.Target;
+import interfaces.OperateWarplane;
+import interfaces.VehicleCombat;
+
 import java.util.Random;
 
-public class Warplane extends Vehicle implements OperateWarplane, VehicleCombat{
+public class Warplane extends Vehicle implements OperateWarplane, VehicleCombat {
 
     public Warplane(){
         this.setType("Warplane");

@@ -1,3 +1,5 @@
+package interfaces;
+
 import java.util.Random;
 
 public interface UseWeapon {

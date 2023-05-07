@@ -1,3 +1,6 @@
+import interfaces.OperateTank;
+import interfaces.VehicleCombat;
+
 import java.util.Random;
 
 public class Tank extends Vehicle implements OperateTank, VehicleCombat {

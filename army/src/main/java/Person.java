@@ -1,6 +1,7 @@
-import java.util.Objects;
+import interfaces.Die;
+import interfaces.UseWeapon;
 
-public abstract class Person implements UseWeapon, Die{
+public abstract class Person implements UseWeapon, Die {
     protected String name;
     protected Integer age;
     protected int health = 100;

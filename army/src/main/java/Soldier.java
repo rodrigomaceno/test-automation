@@ -1,6 +1,9 @@
+import interfaces.Combat;
+import interfaces.UseWeapon;
+
 import java.util.Random;
 
-public class Soldier extends Person implements UseWeapon, Combat{
+public class Soldier extends Person implements UseWeapon, Combat {
     private String rank;
     private Weapon weapon;
 

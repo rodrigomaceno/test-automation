@@ -1,17 +1,19 @@
-import interfaces.OperateWarship;
+package classes;
+import interfaces.OperateTank;
+import interfaces.VehicleCombat;
 
 import java.util.Random;
 
-public class Warship extends Vehicle implements OperateWarship {
+public class Tank extends Vehicle implements OperateTank, VehicleCombat {
 
-    public Warship() {
-        this.setType("Warship");
+    public Tank() {
+        this.setType("Tank");
     }
-    public Warship(String nation) {
-        this.setType("Warship");
+
+    public Tank(String nation) {
+        this.setType("Tank");
         this.nation = nation;
     }
-
 
     public String getType() {
         return type;
@@ -33,36 +35,41 @@ public class Warship extends Vehicle implements OperateWarship {
         return damage;
     }
 
-    public void setDamaged(int damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    @Override
+    public String toString() {
+        return "Tank";
+    }
+
 
     @Override
     public void drive() {
 
     }
 
-    public void sail() {
-
-    }
-
     @Override
-    public void fireArtillery(Vehicle enemy) {
+    public void fireTankGun(Vehicle enemy) {
         int accuracy = new Random().nextInt(2);
 
         if (accuracy == 1) {
             enemy.damage += 30;
-        } else {}
+        } else {
+        }
     }
 
     @Override
     public void combat(Vehicle vehicle) {
-        while(this.damage < 100 && vehicle.damage < 100) {
-            fireArtillery(vehicle);
-            fireArtillery(this);
+        while (this.damage < 100 && vehicle.damage < 100) {
+            fireTankGun(vehicle);
+            fireTankGun(this);
         }
-        if(this.damage >= 100) {
+        if (this.damage >= 100) {
             this.destroy();
-        } else { vehicle.destroy();}
+        } else {
+            vehicle.destroy();
+        }
     }
 }

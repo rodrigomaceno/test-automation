@@ -1,5 +1,6 @@
+package classes;
 public class Rifle extends Weapon {
-    public Rifle(){
+    public Rifle() {
         this.damageToTarget = 50;
     }
 }

@@ -1,13 +1,8 @@
+package classes;
 public class Navy {
     private Marine[] marines;
     private Warship[] warships;
     private Submarine[] submarines;
-
-
-    public Navy() {
-
-    }
-
 
 
     public Marine[] getSailors() {

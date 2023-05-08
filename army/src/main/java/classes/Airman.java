@@ -1,23 +1,22 @@
+package classes;
+
 import interfaces.Combat;
 import interfaces.UseWeapon;
-
 import java.util.Random;
 
 public class Airman extends Person implements UseWeapon, Combat {
     private String rank;
     private Weapon weapon;
+
     public Airman() {
         this.setName("Airman");
         this.setAge(30);
         this.rank = "Pilot";
-        this.nation = "";
+        this.setNation("");
     }
 
     public Airman(String nation) {
-        this.setName("Airman");
-        this.setAge(30);
-        this.rank = "Pilot";
-        this.nation = nation;
+        this.setNation(nation);
     }
 
     public Weapon getWeapon() {
@@ -28,21 +27,6 @@ public class Airman extends Person implements UseWeapon, Combat {
         this.weapon = weapon;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) { this.name = name; }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getRank() {
         return rank;
     }
@@ -51,26 +35,19 @@ public class Airman extends Person implements UseWeapon, Combat {
         this.rank = rank;
     }
 
-    public String getNation() {
-        return nation;
-    }
 
-    public void setNation(String nation) {
-        this.nation = nation;
-    }
 
 
     @Override
     public String toString() {
-        return name;
+        return getName();
     }
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person)){
+        if ((o instanceof Person)) {
             return true;
-        }
-        else {
+        } else {
             System.out.println(o + " is not an airman.");
             return false;
         }
@@ -78,7 +55,7 @@ public class Airman extends Person implements UseWeapon, Combat {
 
     @Override
     public int hashCode() {
-        return  3;
+        return 3;
     }
 
     @Override
@@ -86,20 +63,22 @@ public class Airman extends Person implements UseWeapon, Combat {
         int accuracy = new Random().nextInt(2);
 
         if (accuracy == 1) {
-            person.health -= weapon.damageToTarget;
-        } else {}
+            person.setHealth(person.getHealth() - weapon.damageToTarget);
+        }
     }
 
 
     public void combat(Person person) {
 
-        while(this.health > 0 && person.health > 0) {
+        while (this.getHealth() > 0 && person.getHealth() > 0) {
             shoot(this.getWeapon(), person);
-            shoot(person.getWeapon(),this);
+            shoot(person.getWeapon(), this);
         }
-        if(this.health <= 0) {
+        if (this.getHealth() <= 0) {
             this.die();
-        } else { person.die();}
+        } else {
+            person.die();
+        }
     }
 
 

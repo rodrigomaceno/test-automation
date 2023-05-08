@@ -1,13 +1,8 @@
+package classes;
+
 public class AirForce {
     private Airman[] airmen;
     private Warplane[] warplanes;
-
-
-    public AirForce() {
-
-    }
-
-
 
     public Airman[] getAirmen() {
         return airmen;

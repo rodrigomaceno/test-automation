@@ -1,5 +1,5 @@
 package interfaces;
-
-public interface OperateSubmarine extends OperateVehicle, VehicleCombat{
+import classes.Vehicle;
+public interface OperateSubmarine extends OperateVehicle, VehicleCombat {
     void fireTorpedo(Vehicle vehicle);
 }

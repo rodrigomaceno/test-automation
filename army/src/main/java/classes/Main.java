@@ -1,17 +1,18 @@
+package classes;
 // Soldier, Marine, Airman have overridden methods
 // Weapon, Person, Vehicle are all abstract
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidAmountException {
 
 
         Army army1 = new Army();
-        army1.createArmy("Country 1");
+        army1.createArmy("Country 1", 0,2000);
         army1.createNavy("Country 1");
         army1.createAirForce("Country 1");
 
 
         Army army2 = new Army();
-        army2.createArmy("Country 2");
+        army2.createArmy("Country 2", 200,1000);
         army2.createNavy("Country 2");
         army2.createAirForce("Country 2");
 

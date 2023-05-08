@@ -1,3 +1,4 @@
+package classes;
 import interfaces.Destroy;
 
 public abstract class Vehicle implements Destroy {

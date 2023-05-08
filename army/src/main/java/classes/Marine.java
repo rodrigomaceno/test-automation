@@ -1,3 +1,4 @@
+package classes;
 import interfaces.Combat;
 import interfaces.UseWeapon;
 
@@ -8,17 +9,14 @@ public class Marine extends Person implements UseWeapon, Combat {
     private Weapon weapon;
 
     public Marine() {
-        this.setName("Sailor");
+        this.setName("Marine");
         this.setAge(24);
-        this.rank = "seaman recruit";
-        this.nation = "";
+        this.rank = "private";
+
     }
 
     public Marine(String nation) {
-        this.setName("Airman");
-        this.setAge(30);
-        this.rank = "Pilot";
-        this.nation = nation;
+        this.setNation("");;
     }
 
     public Weapon getWeapon() {
@@ -27,26 +25,6 @@ public class Marine extends Person implements UseWeapon, Combat {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
-    }
-
-
-    public String getNation() { return nation; }
-
-    public void setNation(String nation) { this.nation = nation; }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) { this.name = name; }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public String getRank() {
@@ -58,18 +36,16 @@ public class Marine extends Person implements UseWeapon, Combat {
     }
 
 
-
     @Override
     public String toString() {
-        return name;
+        return getName();
     }
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person)){
+        if ((o instanceof Person)) {
             return true;
-        }
-        else {
+        } else {
             System.out.println(o + " is not a sailor.");
             return false;
         }
@@ -77,7 +53,7 @@ public class Marine extends Person implements UseWeapon, Combat {
 
     @Override
     public int hashCode() {
-        return  2;
+        return 2;
     }
 
 
@@ -86,20 +62,23 @@ public class Marine extends Person implements UseWeapon, Combat {
         int accuracy = new Random().nextInt(2);
 
         if (accuracy == 1) {
-            person.health -= weapon.damageToTarget;
-        } else {}
+            person.setHealth(person.getHealth() - weapon.damageToTarget);
+        } else {
+        }
     }
 
 
     public void combat(Person person) {
 
-        while(this.health > 0 && person.health > 0) {
+        while (this.getHealth() > 0 && person.getHealth() > 0) {
             shoot(this.getWeapon(), person);
-            shoot(person.getWeapon(),this);
+            shoot(person.getWeapon(), this);
         }
-        if(this.health <= 0) {
+        if (this.getHealth() <= 0) {
             this.die();
-        } else { person.die();}
+        } else {
+            person.die();
+        }
     }
 
 }

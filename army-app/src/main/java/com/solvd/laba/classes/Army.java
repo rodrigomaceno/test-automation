@@ -1,12 +1,10 @@
 package com.solvd.laba.classes;
 
-import com.solvd.laba.interfaces.Print;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Army implements Print {
+public class Army {
     private List<Soldier> soldiers = new ArrayList<Soldier>();
     private List<Marine> marines = new ArrayList<Marine>();
     private List<Airman> airmen = new ArrayList<Airman>();

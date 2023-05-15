@@ -3,7 +3,6 @@ package com.solvd.laba.classes;
 
 // Army has a static combat method
 // Airman has final and static fields
-// Print interface has static methods
 // Soldier, Marine, Airman have overridden methods
 // Weapon, Person, Vehicle are all abstract
 public class Main {

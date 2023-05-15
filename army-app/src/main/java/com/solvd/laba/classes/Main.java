@@ -1,6 +1,6 @@
 package com.solvd.laba.classes;
 
-
+// Weapon has a final property damageToTarget
 // Army has a static combat method
 // Airman has final and static fields
 // Soldier, Marine, Airman have overridden methods

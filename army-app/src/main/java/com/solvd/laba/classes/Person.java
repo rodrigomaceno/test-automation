@@ -80,7 +80,7 @@ public abstract class Person implements UseWeapon, Die {
 
 
     public void die() {
-
+        this.setHealth(0);
         this.setDead(true);
         //System.out.println(this.nation + " " + this.name + " died!");
 

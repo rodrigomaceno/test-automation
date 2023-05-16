@@ -15,12 +15,12 @@ public class Main {
     public static void main(String[] args) throws InvalidAmountException {
 
         Army a = new Army();
-        a.createArmy("Country 1", 12);
+        a.createArmy("Country 1", 200);
         a.createNavy("Country 1");
         a.createAirForce("Country 1");
 
         Army b = new Army();
-        b.createArmy("Country 2", 10);
+        b.createArmy("Country 2", 200);
         b.createNavy("Country 2");
         b.createAirForce("Country 2");
 

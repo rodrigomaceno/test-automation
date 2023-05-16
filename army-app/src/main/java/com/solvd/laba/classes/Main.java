@@ -17,16 +17,12 @@ public class Main {
 
         Army a = new Army();
         a.createArmy("Country 1", 200);
-        a.createNavy("Country 1");
-        a.createAirForce("Country 1");
 
         Army b = new Army();
         b.createArmy("Country 2", 200);
-        b.createNavy("Country 2");
-        b.createAirForce("Country 2");
 
         Army.combat(a, b);
-        
+
         Printable.printStats(a);
         Printable.printStats(b);
 

@@ -80,19 +80,13 @@ public class Army {
         Army.amount = amount;
         createSoldiers(this.soldiers, nation);
         createTanks(this.tanks, nation);
-    }
-
-    public void createNavy(String nation) {
         createMarines(this.marines, nation);
         createSubmarines(this.submarines, nation);
         createWarships(this.warships, nation);
-    }
-
-    public void createAirForce(String nation) {
         createAirmen(this.airmen, nation);
         createWarplanes(this.warplanes, nation);
     }
-
+    
     public void createSoldiers(List<Soldier> soldiers, String nation) {
         for (int i = 0; i < amount; i++) {
             soldiers.add(new Soldier(nation));

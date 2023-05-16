@@ -8,7 +8,6 @@ package com.solvd.laba.classes;
 public class Main {
     public static void main(String[] args) {
 
-
         Army a = new Army();
         a.createArmy("Country 1", 100);
         a.createNavy("Country 1");

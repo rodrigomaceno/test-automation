@@ -7,17 +7,10 @@ import java.util.Random;
 
 
 public class Airman extends Person implements UseWeapon, Combat {
-    private String rank;
+    private Weapon weapon;
+    private static int count = 1000000;
 
-
-    // static property is not related to specific instance, but to class itself
-    private static int count = 0;
-
-    // final property can't be changed
-    final private int id = count + 1;
-
-    // class variable to keep track of number of Airman objects initialized
-
+    final private String id = Integer.toHexString(count + 1);
 
     public Airman() {
         this("");
@@ -28,28 +21,22 @@ public class Airman extends Person implements UseWeapon, Combat {
         this.setName(randomFirstName().toString() + " " + randomLastName().toString());
         this.setWeapon(randomWeapon());
         this.setNation(nation);
+        this.setAge(randomAge());
         this.setDead(false);
         count++;
     }
 
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public static int getCount() {
-        return count;
+    public Weapon getWeapon() {
+        return weapon;
     }
 
-
-    public String getRank() {
-        return rank;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
 
     @Override
     public String toString() {
@@ -58,18 +45,17 @@ public class Airman extends Person implements UseWeapon, Combat {
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person)) {
+        if ((o instanceof Person && (this.hashCode() == o.hashCode()))) {
             return true;
         } else {
-            System.out.println(o + " is not an airman.");
             return false;
         }
     }
 
-    // TODO: to finish
+
     @Override
     public int hashCode() {
-        return 3;
+        return 5 * Integer.parseInt(this.getName()) + Integer.parseInt(this.getId());
     }
 
     @Override
@@ -78,9 +64,9 @@ public class Airman extends Person implements UseWeapon, Combat {
 
         if (accuracy == 1) {
             person.setHealth(person.getHealth() - weapon.getDamageToTarget());
-        }
-        if (person.getHealth() <= 0) {
-            person.die();
+            if (person.getHealth() <= 0) {
+                person.die();
+            }
         }
     }
 
@@ -100,4 +86,5 @@ public class Airman extends Person implements UseWeapon, Combat {
             }
         }
     }
+
 }

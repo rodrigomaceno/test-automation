@@ -6,7 +6,11 @@ import com.solvd.laba.interfaces.UseWeapon;
 import java.util.Random;
 
 public class Marine extends Person implements UseWeapon, Combat {
-    private String rank;
+    private Weapon weapon;
+
+    private static int count = 1000000;
+
+    final private String id = Integer.toHexString(count + 1);
 
     public Marine() {
         this("");
@@ -16,18 +20,22 @@ public class Marine extends Person implements UseWeapon, Combat {
         this.setName(randomFirstName().toString() + " " + randomLastName().toString());
         this.setWeapon(randomWeapon());
         this.setNation("");
+        this.setAge(randomAge());
         this.setDead(false);
+        count++;
     }
 
-
-    public String getRank() {
-        return rank;
+    public String getId() {
+        return id;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
+    public Weapon getWeapon() {
+        return weapon;
     }
 
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
 
     @Override
     public String toString() {
@@ -36,18 +44,16 @@ public class Marine extends Person implements UseWeapon, Combat {
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person)) {
+        if ((o instanceof Person && (this.hashCode() == o.hashCode()))) {
             return true;
         } else {
-            System.out.println(o + " is not a sailor.");
             return false;
         }
     }
 
-    // TODO: to finish
     @Override
     public int hashCode() {
-        return 2;
+        return 5 * Integer.parseInt(this.getName()) + Integer.parseInt(this.getId());
     }
 
     @Override
@@ -60,7 +66,6 @@ public class Marine extends Person implements UseWeapon, Combat {
                 person.die();
             }
         }
-
     }
 
 
@@ -74,7 +79,7 @@ public class Marine extends Person implements UseWeapon, Combat {
                 }
             } else {
                 if (!this.isDead() && !person.isDead()) {
-                    shoot(person.getWeapon(), this);
+                    shoot(getWeapon(), this);
                 }
             }
         }

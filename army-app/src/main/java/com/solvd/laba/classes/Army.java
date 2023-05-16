@@ -1,8 +1,10 @@
 package com.solvd.laba.classes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import static com.solvd.laba.classes.Main.logger;
+
 
 public class Army {
     private List<Soldier> soldiers = new ArrayList<Soldier>();
@@ -71,7 +73,10 @@ public class Army {
         this.submarines = submarines;
     }
 
-    public void createArmy(String nation, int amount) {
+    public void createArmy(String nation, int amount) throws InvalidAmountException {
+        if (amount < 10) {
+            throw new InvalidAmountException("Armies need to have amount of 10 or more");
+        }
         Army.amount = amount;
         createSoldiers(this.soldiers, nation);
         createTanks(this.tanks, nation);
@@ -130,10 +135,56 @@ public class Army {
         }
     }
 
+    public int getNumOfCasualties() {
+        int num = 0;
+        for (Soldier soldier : soldiers) {
+            if (soldier.isDead()) {
+                num++;
+            }
+        }
+        for (Airman airman : airmen) {
+            if (airman.isDead()) {
+                num++;
+            }
+        }
+        for (Marine marine : marines) {
+            if (marine.isDead()) {
+                num++;
+            }
+        }
+        return num;
+    }
+
+    public int getNumOfVehiclesDestroyed() {
+        int num = 0;
+        for (Tank tank : tanks) {
+            if (tank.isDestroyed()) {
+                num++;
+            }
+        }
+        for (Submarine submarine : submarines) {
+            if (submarine.isDestroyed()) {
+                num++;
+            }
+        }
+        for (Warplane warplane : warplanes) {
+            if (warplane.isDestroyed()) {
+                num++;
+            }
+        }
+        for (Warship warship : warships) {
+            if (warship.isDestroyed()) {
+                num++;
+            }
+        }
+        return num;
+    }
+
     public static void whoWon(Army army1, Army army2) {
         int[] tally = {0, 0};
 
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE SUBMARINES
+        {
             int[] tempTally = {0, 0};
 
             for (int i = 0; i < amount; i++) {
@@ -153,11 +204,10 @@ public class Army {
                 tally[1]++;
             }
 
-
         }
 
-
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE TANKS
+        {
             int[] tempTally = {0, 0};
 
             for (int i = 0; i < amount; i++) {
@@ -178,7 +228,8 @@ public class Army {
 
         }
 
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE WARPLANES
+        {
             int[] tempTally = {0, 0};
             for (int i = 0; i < amount; i++) {
                 if (army1.getWarplanes().get(i).isDestroyed()) {
@@ -198,7 +249,8 @@ public class Army {
 
         }
 
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE WARSHIPS
+        {
             int[] tempTally = {0, 0};
             for (int i = 0; i < amount; i++) {
                 if (army1.getWarships().get(i).isDestroyed()) {
@@ -218,8 +270,8 @@ public class Army {
 
         }
 
-        // SCORE FOR SOLDIERS, AIRMEN AND MARINES
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE SOLDIERS
+        {
             int[] tempTally = {0, 0};
             for (int i = 0; i < amount; i++) {
                 if (army1.getSoldiers().get(i).isDead()) {
@@ -239,7 +291,8 @@ public class Army {
 
         }
 
-        if (true) {
+        // FINDING OUT WHO WON THE BATTLE OF THE AIRMEN
+        {
             int[] tempTally = {0, 0};
             for (int i = 0; i < amount; i++) {
                 if (army1.getAirmen().get(i).isDead()) {
@@ -259,36 +312,32 @@ public class Army {
 
         }
 
-        if (true) {
-            int[] tempTally = {0, 0};
+        // FINDING OUT WHO WON THE BATTLE OF THE MARINES
+        int[] tempTally = {0, 0};
 
-            for (int i = 0; i < amount; i++) {
-                if (army1.getMarines().get(i).isDead()) {
-                    tempTally[1]++;
+        for (int i = 0; i < amount; i++) {
+            if (army1.getMarines().get(i).isDead()) {
+                tempTally[1]++;
 
-                } else {
-                    tempTally[0]++;
-
-                }
-
-            }
-            if (tempTally[0] > tempTally[1]) {
-                tally[0]++;
             } else {
-                tally[1]++;
+                tempTally[0]++;
+
             }
 
+        }
+        if (tempTally[0] > tempTally[1]) {
+            tally[0]++;
+        } else {
+            tally[1]++;
         }
 
         // FINDING OUT OVERALL SCORE
         if (tally[0] > tally[1]) {
-            System.out.println("Army 1 WON!!!");
-            System.out.println(Arrays.toString(tally));
+            logger.info("Army 1 WON!!!");
         } else if (tally[0] < tally[1]) {
-            System.out.println("Army 2 WON!!!");
-            System.out.println(Arrays.toString(tally));
+            logger.info("Army 2 WON!!!");
         } else {
-            System.out.println("Nobody WON!!!");
+            logger.info("Nobody WON!!!");
         }
 
 
@@ -325,7 +374,7 @@ public class Army {
 
         System.out.println("War ended!!!");
 
-        Army.whoWon(army1, army2);
+        whoWon(army1, army2);
 
     }
 }

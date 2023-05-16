@@ -10,7 +10,6 @@ public abstract class Person implements UseWeapon, Die {
     private Integer age;
     private int health = 100;
     private String nation;
-    private Weapon weapon;
 
     private boolean isDead;
 
@@ -54,14 +53,6 @@ public abstract class Person implements UseWeapon, Die {
         this.nation = nation;
     }
 
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
     public FirstName randomFirstName() {
 
         int num = new Random().nextInt(FirstName.values().length);
@@ -72,6 +63,13 @@ public abstract class Person implements UseWeapon, Die {
 
         int num = new Random().nextInt(LastName.values().length);
         return LastName.values()[num];
+    }
+
+    public int randomAge() {
+        int min = 19;
+        int max = 45;
+        Random num = new Random();
+        return num.nextInt(max - min) + min;
     }
 
     public Weapon randomWeapon() {

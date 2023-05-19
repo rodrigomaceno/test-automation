@@ -1,6 +1,6 @@
 package com.solvd.laba.classes;
 
-// Printable interface has a static method
+// Printable interface has static methods
 // Airman, Soldier and Marine have static fields and overridden methods
 // Weapon has a final property damageToTarget
 // Army has static combat() and whoWon() methods
@@ -14,8 +14,8 @@ public class Main {
         Army b = new Army("Country B", 30);
 
 
-        Army.combat(a, b, Army.test);
+        Army.combat(a, b, (Army army1, Army army2) -> army1.getSize() == army2.getSize());
 
-        
+
     }
 }

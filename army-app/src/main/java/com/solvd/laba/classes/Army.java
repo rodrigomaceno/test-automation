@@ -98,8 +98,6 @@ public class Army {
     }
 
     // Lambda
-    static CheckSize<Army> test = (Army army1, Army army2) -> army1.getSize() == army2.getSize();
-
     static FilterArmy<Person, Army> filter1 = (Army army1) -> {
         List<Person> p = new ArrayList<>();
         p.addAll(army1.getSoldiers());

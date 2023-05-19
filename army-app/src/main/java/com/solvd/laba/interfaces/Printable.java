@@ -14,7 +14,7 @@ public interface Printable {
 
     }
 
-    static String printDead(Army army, FilterArmy filterArmy, FilterPerson filterPerson) {
+    static String printDead(Army army, FilterArmy<Person, Army> filterArmy, FilterPerson<Person, Boolean> filterPerson) {
         String msg = "";
         List<Person> p = filterArmy.filter(army);
         for (Person person : p) {

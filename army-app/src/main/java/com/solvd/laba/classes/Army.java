@@ -100,7 +100,7 @@ public class Army {
     // Lambda
     static CheckSize<Army> test = (Army army1, Army army2) -> army1.getSize() == army2.getSize();
 
-    static FilterArmy filter1 = (Army army1) -> {
+    static FilterArmy<Person, Army> filter1 = (Army army1) -> {
         List<Person> p = new ArrayList<>();
         p.addAll(army1.getSoldiers());
         p.addAll(army1.getAirmen());
@@ -108,7 +108,7 @@ public class Army {
         return p;
     };
 
-    static FilterPerson filter2 = (Person person) -> {
+    static FilterPerson<Person, Boolean> filter2 = (Person person) -> {
         if (person.isDead()) {
             return true;
         }

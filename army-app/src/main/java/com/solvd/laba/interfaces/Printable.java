@@ -1,21 +1,28 @@
 package com.solvd.laba.interfaces;
 
 import com.solvd.laba.classes.Army;
-import com.solvd.laba.classes.Soldier;
+import com.solvd.laba.classes.Person;
+
+import java.util.List;
 
 public interface Printable {
 
-    static void printStats(Army army) {
-        System.out.println(army.getSoldiers().get(0).getNation() + "\tCasualties: " + army.getNumOfCasualties());
-        System.out.println("\t\t\tVehicles Lost: " + army.getNumOfVehiclesDestroyed());
+
+    static String printStats(Army army) {
+        return "\t\t" + army.getSoldiers().get(0).getNation() + "\n" + "person combat: \tLost " + army.getNumOfCasualties() +
+                "\n" + "vehicle combat: Lost " + army.getNumOfVehiclesDestroyed() + "\n";
+
     }
 
-    // TODO: finish
-    static void print(Army army) {
-        for (Soldier soldier : army.getSoldiers()) {
-            System.out.println("Country: " + soldier.getNation() + " \tName: " + soldier.getName() + " \t Age:" + soldier.getAge() + " \tHealth: " + soldier.getHealth());
+    static String printDead(Army army, FilterArmy filterArmy, FilterPerson filterPerson) {
+        String msg = "";
+        List<Person> p = filterArmy.filter(army);
+        for (Person person : p) {
+            if (filterPerson.filter(person)) {
+                msg += person.getNation() + "\t" + person.getName() + " is dead.\n";
+            }
         }
+        return msg + "\n";
     }
-
 
 }

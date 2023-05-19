@@ -1,4 +1,4 @@
-package com.solvd.laba.classes;
+package com.solvd.laba.classes.enums;
 
 public enum LastName {
     Johnson,

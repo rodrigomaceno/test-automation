@@ -1,5 +1,6 @@
 package com.solvd.laba.classes;
 
+import com.solvd.laba.classes.enums.Weapon;
 import com.solvd.laba.interfaces.Combat;
 import com.solvd.laba.interfaces.UseWeapon;
 
@@ -8,24 +9,19 @@ import java.util.Random;
 public class Marine extends Person implements UseWeapon, Combat {
     private Weapon weapon;
 
-    private static int count = 1000000;
-
-    final private String id = Integer.toHexString(count + 1);
-
-    public Marine() {
-        this("");
-    }
+    private static int count = 0;
+    private final int id = count + 1;
 
     public Marine(String nation) {
         this.setName(randomFirstName().toString() + " " + randomLastName().toString());
         this.setWeapon(randomWeapon());
-        this.setNation("");
+        this.setNation(nation);
         this.setAge(randomAge());
         this.setDead(false);
         count++;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -44,16 +40,13 @@ public class Marine extends Person implements UseWeapon, Combat {
 
     @Override
     public boolean equals(Object o) {
-        if ((o instanceof Person && (this.hashCode() == o.hashCode()))) {
-            return true;
-        } else {
-            return false;
-        }
+        return o instanceof Person && (this.hashCode() == o.hashCode());
     }
+
 
     @Override
     public int hashCode() {
-        return 5 * Integer.parseInt(this.getName()) + Integer.parseInt(this.getId());
+        return 5 * this.getName().hashCode() * this.getId();
     }
 
     @Override

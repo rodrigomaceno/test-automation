@@ -1,5 +1,8 @@
 package com.solvd.laba.classes;
 
+import com.solvd.laba.classes.enums.FirstName;
+import com.solvd.laba.classes.enums.LastName;
+import com.solvd.laba.classes.enums.Weapon;
 import com.solvd.laba.interfaces.Die;
 import com.solvd.laba.interfaces.UseWeapon;
 
@@ -82,7 +85,7 @@ public abstract class Person implements UseWeapon, Die {
     public void die() {
         this.setHealth(0);
         this.setDead(true);
-        //System.out.println(this.nation + " " + this.name + " died!");
+        //logger.info((this.nation + " " + this.name + " died!"));
 
     }
 

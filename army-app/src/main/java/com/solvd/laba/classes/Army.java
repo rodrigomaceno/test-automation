@@ -1,6 +1,6 @@
 package com.solvd.laba.classes;
 
-import com.solvd.laba.interfaces.CheckSize;
+import com.solvd.laba.interfaces.Check;
 import com.solvd.laba.interfaces.FilterArmy;
 import com.solvd.laba.interfaces.FilterPerson;
 import com.solvd.laba.interfaces.Printable;
@@ -283,7 +283,7 @@ public class Army {
     }
 
 
-    public static void combat(Army army1, Army army2, CheckSize<Army> a) throws InvalidAmountException {
+    public static void combat(Army army1, Army army2, Check<Army> a) throws InvalidAmountException {
         if (a.check(army1, army2)) {
             for (int i = 0; i < army1.size; i++) {
                 army1.getSoldiers().get(i).combat(army2.getSoldiers().get(i));

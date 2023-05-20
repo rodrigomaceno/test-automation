@@ -6,15 +6,9 @@ import java.util.Random;
 
 public class Warplane extends Vehicle implements OperateWarplane {
 
-
-    public Warplane() {
-        this.setType("Warplane");
-    }
-
     public Warplane(String nation) {
+        super(nation);
         this.setType("Warplane");
-        this.nation = nation;
-        this.setDestroyed(false);
     }
 
     @Override

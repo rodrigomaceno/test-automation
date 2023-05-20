@@ -13,11 +13,8 @@ public class Marine extends Person implements UseWeapon, Combat {
     private final int id = count + 1;
 
     public Marine(String nation) {
-        this.setName(randomFirstName().toString() + " " + randomLastName().toString());
+        super(nation);
         this.setWeapon(randomWeapon());
-        this.setNation(nation);
-        this.setAge(randomAge());
-        this.setDead(false);
         count++;
     }
 

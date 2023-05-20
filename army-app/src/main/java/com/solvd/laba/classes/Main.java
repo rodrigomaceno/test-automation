@@ -10,12 +10,8 @@ public class Main {
 
     public static void main(String[] args) throws InvalidAmountException {
 
-        Army a = new Army("Country A", 30);
-        Army b = new Army("Country B", 30);
-
-
+        Army a = new Army("Country A", 10);
+        Army b = new Army("Country B", 10);
         Army.combat(a, b, (Army army1, Army army2) -> army1.getSize() == army2.getSize());
-
-
     }
 }

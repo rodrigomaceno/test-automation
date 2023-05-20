@@ -1,12 +1,21 @@
 package com.solvd.laba.classes;
 
 import com.solvd.laba.interfaces.Destroy;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Vehicle implements Destroy {
     protected String type;
     protected String nation;
-    protected int damage = 0;
+    protected int damage;
     private boolean isDestroyed;
+    private static final Logger logger = LogManager.getLogger();
+
+    public Vehicle(String nation) {
+        this.nation = nation;
+        this.damage = 0;
+        this.isDestroyed = false;
+    }
 
     public String getType() {
         return type;
@@ -43,7 +52,7 @@ public abstract class Vehicle implements Destroy {
     public void destroy() {
         if (this.damage >= 100) {
             this.setDestroyed(true);
-            //System.out.println(this.nation + " " + this.type + " was destroyed!");
+            logger.info(this.nation + " " + this.type + " was destroyed!");
         }
     }
 

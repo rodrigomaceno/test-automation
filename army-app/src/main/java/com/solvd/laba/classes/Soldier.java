@@ -15,14 +15,13 @@ public class Soldier extends Person implements UseWeapon, Combat {
 
 
     public Soldier(String nation) {
-        this.setName(randomFirstName().toString() + " " + randomLastName().toString());
+        super(nation);
         this.setWeapon(randomWeapon());
-        this.setNation(nation);
-        this.setAge(randomAge());
-        this.setDead(false);
+
+
         count++;
     }
-    
+
     public int getId() {
         return id;
     }

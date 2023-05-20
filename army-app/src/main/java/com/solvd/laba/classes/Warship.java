@@ -6,21 +6,11 @@ import java.util.Random;
 
 public class Warship extends Vehicle implements OperateWarship {
 
-
-    public Warship() {
-        this.setType("Warship");
-    }
-
     public Warship(String nation) {
+        super(nation);
         this.setType("Warship");
-        this.nation = nation;
-        this.setDestroyed(false);
     }
-
-
-    public void sail() {
-
-    }
+    
 
     @Override
     public void fireArtillery(Vehicle vehicle) {

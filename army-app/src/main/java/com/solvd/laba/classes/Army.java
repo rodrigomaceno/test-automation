@@ -4,14 +4,15 @@ import com.solvd.laba.interfaces.Check;
 import com.solvd.laba.interfaces.FilterArmy;
 import com.solvd.laba.interfaces.FilterPerson;
 import com.solvd.laba.interfaces.Printable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 public class Army {
-    private final String nation;
+    private String nation;
     private List<Soldier> soldiers = new ArrayList<>();
     private List<Marine> marines = new ArrayList<>();
     private List<Airman> airmen = new ArrayList<>();
@@ -19,19 +20,20 @@ public class Army {
     private List<Warship> warships = new ArrayList<>();
     private List<Warplane> warplanes = new ArrayList<>();
     private List<Submarine> submarines = new ArrayList<>();
-
     private int size;
-    static final Logger logger = Logger.getLogger(Army.class.getName());
+    private static final Logger logger = LogManager.getLogger();
+
 
     public Army(String nation, int amount) throws InvalidAmountException {
         this.nation = nation;
         createArmy(nation, amount);
-
     }
+
 
     public String getNation() {
         return nation;
     }
+
 
     public int getSize() {
         return size;
@@ -112,6 +114,7 @@ public class Army {
         }
         return false;
     };
+
 
     public void createArmy(String nation, int size) throws InvalidAmountException {
         if (size < 10) {
@@ -267,18 +270,15 @@ public class Army {
 
         // FINDING OUT OVERALL SCORE
         if (tally[0] > tally[1]) {
-            logger.info("War ended!!!\n" + army1.getNation() + " WON!!!\n" + Printable.printStats(army1)
-                    + Printable.printStats(army2) + "\n" + Printable.printDead(army1, filter1, filter2)
-                    + Printable.printDead(army2, filter1, filter2));
+            logger.info("War ended!!! " + army1.getNation() + " WON!!!\n" + Printable.printStats(army1)
+                    + Printable.printStats(army2) + "\n");
 
         } else if (tally[0] < tally[1]) {
-            logger.info("War ended!!!\n" + army2.getNation() + " WON!!!\n" + Printable.printStats(army1)
-                    + Printable.printStats(army2) + "\n" + Printable.printDead(army1, filter1, filter2)
-                    + Printable.printDead(army2, filter1, filter2));
+            logger.info("War ended!!! " + army2.getNation() + " WON!!!\n" + Printable.printStats(army1)
+                    + Printable.printStats(army2) + "\n");
         } else
-            logger.info("Nobody WON!!!\n" + Printable.printStats(army1) + Printable.printStats(army2) + "\n"
-                    + Printable.printDead(army1, filter1, filter2)
-                    + Printable.printDead(army2, filter1, filter2));
+            logger.info("Nobody WON!!! " + Printable.printStats(army1) + Printable.printStats(army2) + "\n"
+            );
 
     }
 

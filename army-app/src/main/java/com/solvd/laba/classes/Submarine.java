@@ -6,15 +6,9 @@ import java.util.Random;
 
 public class Submarine extends Vehicle implements OperateSubmarine {
 
-
-    public Submarine() {
-        this.type = "Submarine";
-    }
-
     public Submarine(String nation) {
+        super(nation);
         this.setType("Submarine");
-        this.nation = nation;
-        this.setDestroyed(false);
     }
 
 

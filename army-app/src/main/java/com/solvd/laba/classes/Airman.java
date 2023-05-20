@@ -12,15 +12,12 @@ public class Airman extends Person implements UseWeapon, Combat {
     private static int count = 0;
 
     private final int id = count + 1;
-    
+
 
     // constructor that takes nation as parameter
     public Airman(String nation) {
-        this.setName(randomFirstName().toString() + " " + randomLastName().toString());
+        super(nation);
         this.setWeapon(randomWeapon());
-        this.setNation(nation);
-        this.setAge(randomAge());
-        this.setDead(false);
         count++;
     }
 

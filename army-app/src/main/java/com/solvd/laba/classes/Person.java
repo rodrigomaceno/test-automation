@@ -5,16 +5,26 @@ import com.solvd.laba.classes.enums.LastName;
 import com.solvd.laba.classes.enums.Weapon;
 import com.solvd.laba.interfaces.Die;
 import com.solvd.laba.interfaces.UseWeapon;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
 public abstract class Person implements UseWeapon, Die {
     private String name;
     private Integer age;
-    private int health = 100;
+    private int health;
     private String nation;
-
     private boolean isDead;
+    private static final Logger logger = LogManager.getLogger();
+
+    public Person(String nation) {
+        this.nation = nation;
+        this.health = 100;
+        this.name = randomFirstName().toString() + " " + randomLastName().toString();
+        this.age = randomAge();
+        this.setDead(false);
+    }
 
     public boolean isDead() {
         return isDead;
@@ -85,8 +95,7 @@ public abstract class Person implements UseWeapon, Die {
     public void die() {
         this.setHealth(0);
         this.setDead(true);
-        //logger.info((this.nation + " " + this.name + " died!"));
-
+        logger.info((this.nation + " " + this.name + " died!"));
     }
 
     public static int takeTurn() {

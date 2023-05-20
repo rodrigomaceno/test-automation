@@ -6,16 +6,9 @@ import java.util.Random;
 
 public class Tank extends Vehicle implements OperateTank {
 
-
-    public Tank() {
-        this.setType("Tank");
-
-    }
-
     public Tank(String nation) {
+        super(nation);
         this.setType("Tank");
-        this.nation = nation;
-        this.setDestroyed(false);
     }
 
 

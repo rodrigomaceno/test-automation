@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public class Army {
-    private String nation;
+    private final String nation;
     private List<Soldier> soldiers = new ArrayList<>();
     private List<Marine> marines = new ArrayList<>();
     private List<Airman> airmen = new ArrayList<>();

@@ -1,1 +1,3 @@
-Hello World! This is a text document. Goodbye!
+Hello World! This is a text document. Goodbye! goodbye
+
+ This      is a second line of text   and contains  spaces  .

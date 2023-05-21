@@ -1,33 +1,48 @@
 package com.solvd.laba.classes.file.reader;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 public class FileReaderApp {
+    private static final Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) throws IOException {
         File file = new File("src/main/resources/myfile.txt");
 
-        FileReader var1 = new FileReader(file);
+        FileReader a = new FileReader(file);
 
-        BufferedReader var2 = new BufferedReader(var1);
+        BufferedReader b = new BufferedReader(a);
 
-        String text;
-        List<Character> list = new ArrayList<>();
-        int counter = 0;
+        HashSet<String> list = new HashSet<>();
 
-        while ((text = var2.readLine()) != null) {
-            for (char c : text.toCharArray()) {
-                if (c == ' ')
-                    counter++;
+        try {
+            String s;
+            String word = "";
+
+            while ((s = b.readLine()) != null) {
+                for (char c : s.toCharArray()) {
+                    if (c != ' ')
+                        word += c;
+                    else {
+                        if (!word.equals("")) {
+                            list.add(word);
+                            word = "";
+                        }
+                    }
+                }
             }
+        } finally {
+            a.close();
+            b.close();
         }
-        counter++;
 
-        System.out.print(counter);
+        logger.info("Number of unique words: " + list.size());
 
     }
 }

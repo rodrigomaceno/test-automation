@@ -3,10 +3,7 @@ package com.solvd.laba.classes.file.reader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashSet;
 
 public class FileReaderApp {
@@ -21,28 +18,29 @@ public class FileReaderApp {
 
         HashSet<String> list = new HashSet<>();
 
-        try {
-            String s;
-            String word = "";
 
-            while ((s = b.readLine()) != null) {
-                for (char c : s.toCharArray()) {
-                    if (c != ' ')
-                        word += c;
-                    else {
-                        if (!word.equals("")) {
-                            list.add(word);
-                            word = "";
-                        }
+        String s;
+        String word = "";
+
+        while ((s = b.readLine()) != null) {
+            for (char c : s.toCharArray()) {
+                if (c != ' ')
+                    word += c;
+                else {
+                    if (!word.equals("")) {
+                        list.add(word);
+                        word = "";
                     }
                 }
             }
-        } finally {
-            a.close();
-            b.close();
         }
 
+        a.close();
+        b.close();
         logger.info("Number of unique words: " + list.size());
+        FileWriter writer = new FileWriter("src/main/resources/myfile.txt", true);
+        writer.write((String.valueOf(list.size())));
+        writer.close();
 
     }
 }

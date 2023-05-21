@@ -1,10 +1,17 @@
 package com.solvd.laba.classes.file.reader;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+
 
 public class FileReaderApp {
     private static final Logger logger = LogManager.getLogger();
@@ -14,32 +21,16 @@ public class FileReaderApp {
 
         HashSet<String> list = new HashSet<>();
 
-        try (BufferedReader b = new BufferedReader(new FileReader(file))) {
+        List<String> s = FileUtils.readLines(file, StandardCharsets.UTF_8);
 
-            String s;
+        for (String a : s)
+            list.addAll(Arrays.asList(a.replaceAll("[^a-zA-Z ]", "").split(" ")));
 
-            String word = "";
-
-            while ((s = b.readLine()) != null) {
-                for (char c : s.toCharArray()) {
-                    if (c != ' ')
-                        word += c;
-                    else {
-                        if (!word.equals("")) {
-                            list.add(word);
-                            word = "";
-                        }
-                    }
-                }
-            }
-        }
-
+        list.removeIf(StringUtils::isBlank);
 
         logger.info("Number of unique words: " + list.size());
 
-        try (FileWriter writer = new FileWriter("src/main/resources/myfile.txt", true)) {
-            writer.write((String.valueOf(list.size())));
-        }
+        FileUtils.write(file, Integer.toString(list.size()), StandardCharsets.UTF_8, true);
 
     }
 }

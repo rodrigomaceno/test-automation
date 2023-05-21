@@ -57,8 +57,7 @@ public class Marine extends Person implements UseWeapon, Combat {
             }
         }
     }
-
-
+    
     public void combat(Person person) {
 
         while (!this.isDead() && !person.isDead()) {

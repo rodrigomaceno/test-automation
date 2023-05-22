@@ -1,4 +1,4 @@
-package com.solvd.laba.classes.file.reader;
+package com.solvd.laba.file.reader;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;

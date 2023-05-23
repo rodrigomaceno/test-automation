@@ -24,7 +24,6 @@ public class MyLinkedList<T> {
     }
 
     public int getSize() {
-        System.out.print("The size is ");
         return size;
     }
 

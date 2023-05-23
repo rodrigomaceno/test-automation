@@ -218,83 +218,53 @@ public class Army {
     }
 
 
-    public static void whoWon(Army army1, Army army2) {
-        Integer[] tally = {0, 0};
+    public void whoWon(Army army2) {
+        int aliveUnitsArmy1 = 0;
+        int aliveUnitsArmy2 = 0;
+
         {
-            int[] tempTally = {0, 0};
 
-            for (Soldier soldier : army1.getSoldiers()) {
-                if (soldier.isDead()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
-            for (Marine marine : army1.getMarines()) {
-                if (marine.isDead()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
-            for (Airman airman : army1.getAirmen()) {
-                if (airman.isDead()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
+            aliveUnitsArmy1 += this.getSoldiers().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy1 += this.getMarines().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy1 += this.getAirmen().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy1 += this.getSubmarines().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy1 += this.getWarships().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy1 += this.getTanks().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy1 += this.getWarplanes().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
 
-            for (Submarine submarine : army1.getSubmarines()) {
-                if (submarine.isDestroyed()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
+            aliveUnitsArmy2 += army2.getSoldiers().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy2 += army2.getMarines().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy2 += army2.getAirmen().stream().filter(person -> !person.isDead()).count();
+            aliveUnitsArmy2 += army2.getSubmarines().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy2 += army2.getWarships().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy2 += army2.getTanks().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
+            aliveUnitsArmy2 += army2.getWarplanes().stream().filter(vehicle -> !vehicle.isDestroyed()).count();
 
-            for (Warship warship : army1.getWarships()) {
-                if (warship.isDestroyed()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
-            for (Tank tank : army1.getTanks()) {
-                if (tank.isDestroyed()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
-            for (Warplane warplane : army1.getWarplanes()) {
-                if (warplane.isDestroyed()) {
-                    tempTally[1]++;
-                } else tempTally[0]++;
-            }
-
-            if (tempTally[0] > tempTally[1]) {
-                tally[0]++;
-            } else if (tempTally[0] < tempTally[1]) {
-                tally[1]++;
-            }
         }
 
         // FINDING OUT OVERALL SCORE
-        if (tally[0] > tally[1]) {
-            logger.info("War ended!!! " + army1.getNation() + " WON!!!\n" + Printable.printStats(army1)
+        if (aliveUnitsArmy1 > aliveUnitsArmy2) {
+            logger.info("War ended!!! " + this.getNation() + " WON!!!\n" + Printable.printStats(this)
                     + Printable.printStats(army2) + "\n");
 
-        } else if (tally[0] < tally[1]) {
-            logger.info("War ended!!! " + army2.getNation() + " WON!!!\n" + Printable.printStats(army1)
-                    + Printable.printStats(army2) + "\n");
-        } else
-            logger.info("Nobody WON!!! " + Printable.printStats(army1) + Printable.printStats(army2) + "\n"
-            );
+        } else logger.info("War ended!!! " + army2.getNation() + " WON!!!\n" + Printable.printStats(this)
+                + Printable.printStats(army2) + "\n");
 
     }
 
 
-    public static void combat(Army army1, Army army2, Check<Army> a) throws InvalidAmountException {
-        if (a.check(army1, army2)) {
-            for (int i = 0; i < army1.size; i++) {
-                army1.getSoldiers().get(i).combat(army2.getSoldiers().get(i));
-                army1.getMarines().get(i).combat(army2.getMarines().get(i));
-                army1.getAirmen().get(i).combat(army2.getAirmen().get(i));
-                army1.getTanks().get(i).combat(army2.getTanks().get(i));
-                army1.getSubmarines().get(i).combat(army2.getSubmarines().get(i));
-                army1.getWarplanes().get(i).combat(army2.getWarplanes().get(i));
-                army1.getWarships().get(i).combat(army2.getWarships().get(i));
+    public void combat(Army army2, Check<Army> a) throws InvalidAmountException {
+        if (a.check(this, army2)) {
+            for (int i = 0; i < this.size; i++) {
+                this.getSoldiers().get(i).combat(army2.getSoldiers().get(i));
+                this.getMarines().get(i).combat(army2.getMarines().get(i));
+                this.getAirmen().get(i).combat(army2.getAirmen().get(i));
+                this.getTanks().get(i).combat(army2.getTanks().get(i));
+                this.getSubmarines().get(i).combat(army2.getSubmarines().get(i));
+                this.getWarplanes().get(i).combat(army2.getWarplanes().get(i));
+                this.getWarships().get(i).combat(army2.getWarships().get(i));
             }
-            whoWon(army1, army2);
+            whoWon(army2);
         } else throw new InvalidAmountException("Armies need to be of equal size.");
 
     }

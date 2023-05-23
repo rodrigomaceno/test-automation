@@ -1,7 +1,8 @@
 package com.solvd.laba.classes;
 
-public class InvalidArgumentException extends Throwable {
+public class InvalidArgumentException extends RuntimeException {
     public InvalidArgumentException() {
-        System.out.println("You must pass 4 arguments into this app for it to work.");
+        super("You need 4 Arguments passed as parameters to your application. [nation1 name, size, nation2 name, size]");
     }
+
 }

@@ -1,6 +1,11 @@
 package com.solvd.laba.linked.list;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class LinkedListApp {
+    private static final Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) {
         MyLinkedList<String> list = new MyLinkedList<>();
         MyLinkedList<Integer> list2 = new MyLinkedList<>();
@@ -13,32 +18,32 @@ public class LinkedListApp {
         list.addAtIndex("Samantha", 2);
         list.addToStart("Sarah");
 
-        System.out.println(list);
+        logger.info(list);
         list.remove(4);
-        System.out.println(list);
+        logger.info(list);
 
 
         list.add("Susan");
-        System.out.println(list);
+        logger.info(list);
 
         list.remove(0);
-        System.out.println(list);
+        logger.info(list);
 
 
         list2.add(1);
         list2.add(2);
         list2.add(3);
-        System.out.println(list2);
-        System.out.println(list2.getSize());
+        logger.info(list2);
+        logger.info("The size is " + list2.getSize());
 
 
         list2.remove(0);
-        System.out.println(list2);
-        System.out.println(list2.getSize());
+        logger.info(list2);
+        logger.info("The size is " + list2.getSize());
 
         list2.remove(1);
-        System.out.println(list2);
-        System.out.println(list2.getSize());
+        logger.info(list2);
+        logger.info("The size is " + list2.getSize());
 
     }
 }

@@ -18,6 +18,9 @@ public abstract class Person implements UseWeapon, Die {
     private boolean isDead;
     private static final Logger logger = LogManager.getLogger();
 
+    public Person() {
+    }
+
     public Person(String nation) {
         this.nation = nation;
         this.health = 100;

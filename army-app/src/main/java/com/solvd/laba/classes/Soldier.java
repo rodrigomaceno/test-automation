@@ -13,6 +13,8 @@ public class Soldier extends Person implements UseWeapon, Combat {
 
     private final int id = count + 1;
 
+    public Soldier() {
+    }
 
     public Soldier(String nation) {
         super(nation);
